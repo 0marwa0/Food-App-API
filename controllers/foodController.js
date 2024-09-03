@@ -12,13 +12,11 @@ const addFood = async (req, res) => {
   });
   try {
     await food.save();
-    console.log(name, imageFileName, price, category);
     res.json({ success: true, massage: "Food added successfully" });
   } catch (error) {
     console.log(error);
     res.json({
       success: false,
-      // img: imageFileName,
       massage: "Something went wrong!!",
     });
   }

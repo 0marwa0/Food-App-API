@@ -7,6 +7,7 @@ import userRouter from "./routes/userRouter.js";
 import foodRouter from "./routes/foodRouter.js";
 import categoryRouter from "./routes/categoryRouter.js";
 import resturantRouter from "./routes/resturantRouter.js";
+
 // create the app server
 const app = express();
 const port = 3000;
@@ -24,7 +25,6 @@ app.use("/api/food", foodRouter);
 app.use("/api/category", categoryRouter);
 app.use("/api/resturant", resturantRouter);
 
-// call the database connection
 connectDB();
 app.listen(port, () => {
   console.log(`Server is up and running on port${port}`);

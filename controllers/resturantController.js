@@ -41,6 +41,20 @@ const getAllResturant = async (req, res) => {
     res.json({ success: false, massage: "could not get all resturant" });
   }
 };
+
+const filterResturant = async (req, res) => {
+  const { rating, delivery } = req.body;
+  try {
+    let query = { delivery: delivery, rating: { $gte: rating } };
+    const filteredRedsturant = await resturantModal.find(
+      removeEmptyProperties(query)
+    );
+    res.json({ success: true, resturants: filteredRedsturant });
+  } catch (error) {
+    res.json({ success: false, massage: "Something wen wrong!!" });
+  }
+};
+
 const editResturant = async (req, res) => {
   let coverImage = req.files.cover[0].filename;
   let logoImage = req.files.logo[0].filename;
@@ -62,4 +76,10 @@ const editResturant = async (req, res) => {
     res.json({ success: false, massage: "could not edit the resturant!" });
   }
 };
-export { addResurant, deleteResturant, getAllResturant, editResturant };
+export {
+  addResurant,
+  deleteResturant,
+  getAllResturant,
+  editResturant,
+  filterResturant,
+};

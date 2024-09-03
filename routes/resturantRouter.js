@@ -3,6 +3,7 @@ import {
   addResurant,
   deleteResturant,
   editResturant,
+  filterResturant,
   getAllResturant,
 } from "../controllers/resturantController.js";
 import multer from "multer";
@@ -23,5 +24,6 @@ resturantRouter.post("/add", upload, addResurant);
 resturantRouter.delete("/delete", deleteResturant);
 resturantRouter.get("/get-all", getAllResturant);
 resturantRouter.put("/edit", upload, editResturant);
-
+resturantRouter.put("/edit", upload, editResturant);
+resturantRouter.post("/filter-resturant", filterResturant);
 export default resturantRouter;
