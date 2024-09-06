@@ -20,6 +20,7 @@ app.post("/test", (req, res) => {
   let name = req.body.name;
   res.json(name);
 });
+app.use("/images", express.static("uploads"));
 app.use("/api/user", userRouter);
 app.use("/api/food", foodRouter);
 app.use("/api/category", categoryRouter);
