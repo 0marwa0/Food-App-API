@@ -21,5 +21,13 @@ const addFood = async (req, res) => {
     });
   }
 };
+const getFood = async (req, res) => {
+  try {
+    const allFood = await foodModel.find({});
 
-export { addFood };
+    res.json({ success: true, food: allFood });
+  } catch (error) {
+    res.json({ success: false, massage: "could not get all the food" });
+  }
+};
+export { addFood, getFood };
