@@ -27,6 +27,7 @@ const getFood = async (req, res) => {
 
     res.json({ success: true, food: allFood });
   } catch (error) {
+    console.log(error, "get food");
     res.json({ success: false, massage: "could not get all the food" });
   }
 };
